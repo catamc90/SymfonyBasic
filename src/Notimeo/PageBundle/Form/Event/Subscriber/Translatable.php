@@ -148,7 +148,6 @@ class Translatable implements EventSubscriberInterface
             if(null === $content && in_array($locale, $this->options['required_locale'])) {
                 $form->addError($this->getCannotBeBlankException($this->options['field'], $locale));
             } else {
-                d([sprintf('%s:%s', $this->options['field'], $locale)]);
                 $errors = $this->validator->validate(
                     $this->createPersonalTranslation($locale, $field_name, $content),
                     null,
@@ -280,7 +279,5 @@ class Translatable implements EventSubscriberInterface
 
             $form->add($field);
         }
-
-//        ddd($form, $form->get($binded['fieldName']), $binded['fieldName'], $field);
     }
 }
