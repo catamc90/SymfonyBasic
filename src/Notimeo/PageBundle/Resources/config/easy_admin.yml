@@ -1,0 +1,28 @@
+easy_admin:
+    entities:
+#        PageFile:
+#            class: Notimeo\PageBundle\Entity\PageFile
+#            form:
+#                fields:
+#                    - { property: 'contractFile', type: 'vich_file' }
+        Page:
+            class: Notimeo\PageBundle\Entity\Page
+            list:
+                fields:
+                    - title
+                    - { property: 'image', type: 'image', base_path: "%app.path.product_images%" }
+                    - updateDate
+            show:
+                fields:
+                    - { property: 'image', type: 'image', base_path: "%app.path.product_images%" }
+            form:
+                fields:
+                    - isPublished
+                    - property: 'title'
+                      type: 'Notimeo\PageBundle\Form\TranslatableType'
+                      type_options:
+                          personal_translation: 'Notimeo\PageBundle\Entity\Page\PageTranslation'
+                          property_path: 'translations'
+                    - { property: 'content', type: 'Notimeo\PageBundle\Form\TranslatableType', type_options: { widget: 'Ivory\CKEditorBundle\Form\Type\CKEditorType', personal_translation: 'Notimeo\PageBundle\Entity\Page\PageTranslation', 'property_path': 'translations' } }
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - { property: 'pageFiles', type: 'collection', type_options: { entry_type: 'Notimeo\PageBundle\Form\Type\MyFileType', by_reference: false } }

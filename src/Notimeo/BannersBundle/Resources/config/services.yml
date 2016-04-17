@@ -1,0 +1,6 @@
+services:
+    notimeo.banners.subscriber:
+        class: Notimeo\BannersBundle\EventListener\BannersAuthorSubscriber
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        arguments: ["@security.token_storage"]

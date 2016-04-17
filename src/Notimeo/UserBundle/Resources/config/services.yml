@@ -1,0 +1,5 @@
+services:
+    notimeo.user.routing:
+        class: Notimeo\UserBundle\Routing\NotimeoUserLoader
+        tags:
+            - { name: routing.loader }

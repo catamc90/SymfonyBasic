@@ -1,0 +1,20 @@
+easy_admin:
+    entities:
+        Block:
+            class: Notimeo\BlocksBundle\Entity\Block
+            list:
+                fields:
+                    - title
+                    - updateDate
+            form:
+                fields:
+                    - title
+                    - content
+        BlockRegion:
+            class: Notimeo\BlocksBundle\Entity\BlockRegion
+            list:
+                fields:
+                    - name
+            form:
+                fields:
+                    - name

@@ -1,0 +1,24 @@
+easy_admin:
+    entities:
+        Banner:
+            class: Notimeo\BannersBundle\Entity\Banner
+            form:
+                fields:
+                    - title
+                    - isPublished
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - alt
+                    - category
+            list:
+                fields:
+                    - title
+                    - updateDate
+                    - category
+        BannerCategory:
+            class: Notimeo\BannersBundle\Entity\BannerCategory
+            list:
+                fields:
+                    - name
+            form:
+                fields:
+                    - name

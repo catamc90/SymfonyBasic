@@ -1,0 +1,48 @@
+easy_admin:
+    site_name: 'Notimeo CMS'
+    formats:
+        date: "Y-m-d"
+        time: "H:i:s"
+        datetime: "d.m.Y H:i:s"
+    design:
+        color_scheme: 'dark'
+        brand_color: '#0e76bc'
+        menu:
+            - label: 'adminmenu.content'
+            - entity: Banner
+              label: Banners
+              icon: camera
+              children:
+                - { entity: Banner, label: 'Banners list', icon: list }
+                - { entity: Banner, label: 'Add banner', icon: plus, params: { action: 'new' } }
+            - entity: Block
+              label: Blocks
+              icon: th
+              children:
+                - { entity: Block, label: 'Blocks list', icon: list }
+                - { entity: Block, label: 'Create block', icon: plus, params: { action: 'new' } }
+                - { entity: BlockRegion, label: 'Regions', icon: list }
+            - entity: Page
+              label: Pages
+              icon: file-text-o
+              children:
+                - { entity: Page, label: 'Pages list', icon: list }
+                - { entity: Page, label: 'Add page', icon: plus, params: { action: 'new' } }
+            - entity: Menu
+              icon: bars
+              children:
+                - { entity: Menu, label: 'Menu list', icon: list }
+                - { entity: Menu, label: 'Create menu', icon: plus, params: { action: 'new' } }
+            - label: 'Authorization system'
+            - entity: 'User'
+              label: 'Users'
+              icon: 'user'
+              children:
+                - { entity: User, label: 'Users list', icon: list }
+                - { entity: User, label: 'Add user', icon: plus, params: { action: 'new' } }
+            - entity: Role
+              label: Permissions
+              icon: cubes
+              children:
+                - { entity: Role, label: 'Roles list', icon: list }
+                - { entity: Role, label: 'Add role', icon: plus, params: { action: 'new' } }

@@ -1,0 +1,5 @@
+services:
+    notimeo.test.routing:
+        class: Notimeo\TestBundle\Routing\NotimeoTestLoader
+        tags:
+            - { name: routing.loader }

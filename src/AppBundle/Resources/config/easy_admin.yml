@@ -1,0 +1,8 @@
+#easy_admin:
+#    entities:
+#        Product:
+#            class: AppBundle\Entity\Product
+#        ProductCategory:
+#            class: AppBundle\Entity\Category
+#        User:
+#            class: AppBundle\Entity\User

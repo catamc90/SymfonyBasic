@@ -1,0 +1,19 @@
+easy_admin:
+    entities:
+        Menu:
+            class: Notimeo\MenuBundle\Entity\Menu
+            form:
+                fields:
+                    - name
+            list:
+                fields:
+                    - name
+                    - updateDate
+        MenuItem:
+            class: Notimeo\MenuBundle\Entity\MenuItem
+            list:
+                fields:
+                    - title
+            form:
+                fields:
+                    - title

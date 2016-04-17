@@ -1,0 +1,5 @@
+services:
+    notimeo.core.routing:
+        class: Notimeo\CoreBundle\Routing\NotimeoCoreLoader
+        tags:
+            - { name: routing.loader }

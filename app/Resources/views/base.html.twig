@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:hx="http://purl.org/NET/hinclude">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script src="{{ asset('js/hinclude.js') }}"></script>
+        {# block javascripts %}
+            {% javascripts '@AppBundle/Resources/views/public/js/*' %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock #}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

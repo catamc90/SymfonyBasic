@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lucky Numbers: {{ luckyNumberList }}</h1>
+    <p>Result: {{ result }}</p>
+
+    <div class="async_loaded_here">
+        {{ render_hinclude(controller('AppBundle:Lucky:async')) }}
+    </div>
+{% endblock %}

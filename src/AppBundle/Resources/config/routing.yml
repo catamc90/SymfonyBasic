@@ -1,0 +1,30 @@
+# lucky number
+lucky_number:
+    path: /lucky/number/{count}
+    defaults:
+        _controller: AppBundle:Lucky:number
+    requirements:
+        count: \d+
+# async content
+async_content:
+    path: /lucky/async
+    defaults:
+        _controller: AppBundle:Lucky:async
+# admin
+admin:
+    path: /admin
+    defaults:
+        _controller: AppBundle:Default:admin
+# homepage
+homepage:
+    path: /
+    defaults:
+        _controller: AppBundle:Default:index
+# login
+login:
+    path: /login
+    defaults:
+        _controller: AppBundle:Default:login
+#logout
+logout:
+    path: /logout

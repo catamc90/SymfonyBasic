@@ -1,0 +1,8 @@
+parameters:
+    notimeo.banners.images_path: /uploads/images/banners
+
+vich_uploader:
+    mappings:
+        banners_images:
+            uri_prefix:         "%notimeo.banners.images_path%"
+            upload_destination: "%kernel.root_dir%/../web%notimeo.banners.images_path%"

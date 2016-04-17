@@ -1,0 +1,5 @@
+# homepage
+homepage:
+    path: /
+    defaults:
+        _controller: CoreBundle:Base:index

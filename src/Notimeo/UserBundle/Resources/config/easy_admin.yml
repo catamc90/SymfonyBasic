@@ -1,0 +1,9 @@
+easy_admin:
+    entities:
+        User:
+            class: Notimeo\UserBundle\Entity\User
+        Role:
+            class: Notimeo\UserBundle\Entity\Role
+            form:
+                fields:
+                    - { property: 'role_name', type: 'text' }

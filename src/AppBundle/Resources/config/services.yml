@@ -1,0 +1,8 @@
+# app/config/services.yml
+parameters:
+    app.test:  sendmail
+
+services:
+    app.test:
+        class:        AppBundle\Services\TestService
+#        arguments:    ['%app.mailer.transport%']

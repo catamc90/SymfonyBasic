@@ -1,0 +1,11 @@
+services:
+#    my.listener:
+#        class: Notimeo\PageBundle\EventListener\PageAuthorUpdater
+#        tags:
+#            - { name: doctrine.event_listener, event: preUpdate }
+#        arguments: ["@security.token_storage"]
+    my.subscriber:
+        class: Notimeo\PageBundle\EventListener\PageAuthorSubscriber
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        arguments: ["@security.token_storage"]
