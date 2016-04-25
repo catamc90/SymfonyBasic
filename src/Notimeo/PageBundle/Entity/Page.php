@@ -68,6 +68,8 @@ class Page
 
     /**
      * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
+     * @Assert\Valid
+     * @Assert\NotBlank(groups={"add_psasdsaage"})
      * @var File
      */
     private $imageFile;

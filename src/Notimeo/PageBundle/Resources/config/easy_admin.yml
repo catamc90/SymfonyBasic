@@ -15,7 +15,12 @@ easy_admin:
             show:
                 fields:
                     - { property: 'image', type: 'image', base_path: "%app.path.product_images%" }
+            new:
+                form_options: { validation_groups: ['Default', 'add_page'] }
+            edit:
+                form_options: { validation_groups: ['dupa'] }
             form:
+                form_options: { validation_groups: ['dupa'] }
                 fields:
                     - isPublished
                     - property: 'title'
@@ -24,5 +29,8 @@ easy_admin:
                           personal_translation: 'Notimeo\PageBundle\Entity\Page\PageTranslation'
                           property_path: 'translations'
                     - { property: 'content', type: 'Notimeo\PageBundle\Form\TranslatableType', type_options: { widget: 'Ivory\CKEditorBundle\Form\Type\CKEditorType', personal_translation: 'Notimeo\PageBundle\Entity\Page\PageTranslation', 'property_path': 'translations' } }
-                    - { property: 'imageFile', type: 'vich_image' }
+                    - property: 'imageFile'
+                      type: 'vich_image'
+                      type_options:
+                          allow_delete: false
                     - { property: 'pageFiles', type: 'collection', type_options: { entry_type: 'Notimeo\PageBundle\Form\Type\MyFileType', by_reference: false } }
