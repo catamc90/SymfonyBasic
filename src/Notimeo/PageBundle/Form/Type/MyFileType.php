@@ -6,7 +6,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
-
+/**
+ * Class MyFileType
+ *
+ * @package Notimeo\PageBundle\Form\Type
+ */
 class MyFileType extends AbstractType
 {
     /**

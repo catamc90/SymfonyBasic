@@ -15,22 +15,38 @@ easy_admin:
             show:
                 fields:
                     - { property: 'image', type: 'image', base_path: "%app.path.product_images%" }
-            new:
-                form_options: { validation_groups: ['Default', 'add_page'] }
-            edit:
-                form_options: { validation_groups: ['dupa'] }
+#            new:
+#                form_options: { validation_groups: ['Default', 'add_page'] }
+#            edit:
+#                form_options: { validation_groups: ['Default', 'xxxx'] }
             form:
-                form_options: { validation_groups: ['dupa'] }
+#                form_options: { validation_groups: ['Default'] }
                 fields:
                     - isPublished
-                    - property: 'title'
-                      type: 'Notimeo\PageBundle\Form\TranslatableType'
+#                    - property: 'title'
+#                      type: 'Notimeo\PageBundle\Form\TranslatableType'
+#                      type_options:
+#                          personal_translation: 'Notimeo\PageBundle\Entity\Page\PageTranslation'
+#                          property_path: 'translations'
+#                    - property: 'content'
+#                      type: 'Notimeo\PageBundle\Form\TranslatableType'
+#                      type_options:
+#                          widget: 'Ivory\CKEditorBundle\Form\Type\CKEditorType'
+#                          personal_translation: 'Notimeo\PageBundle\Entity\Page\PageTranslation'
+#                          property_path: 'translations'
+                    - property: 'locales'
+                      label: "Translations"
+                      type: 'collection'
                       type_options:
-                          personal_translation: 'Notimeo\PageBundle\Entity\Page\PageTranslation'
-                          property_path: 'translations'
-                    - { property: 'content', type: 'Notimeo\PageBundle\Form\TranslatableType', type_options: { widget: 'Ivory\CKEditorBundle\Form\Type\CKEditorType', personal_translation: 'Notimeo\PageBundle\Entity\Page\PageTranslation', 'property_path': 'translations' } }
-                    - property: 'imageFile'
-                      type: 'vich_image'
+                          entry_type: 'Notimeo\PageBundle\Form\Type\PageLocaleType'
+                          by_reference: false
+                          error_bubbling: false
+#                    - property: 'imageFile'
+#                      type: 'vich_image'
+#                      type_options:
+#                          allow_delete: false
+                    - property: 'pageFiles'
+                      type: 'collection'
                       type_options:
-                          allow_delete: false
-                    - { property: 'pageFiles', type: 'collection', type_options: { entry_type: 'Notimeo\PageBundle\Form\Type\MyFileType', by_reference: false } }
+                          entry_type: 'Notimeo\PageBundle\Form\Type\MyFileType'
+                          by_reference: false

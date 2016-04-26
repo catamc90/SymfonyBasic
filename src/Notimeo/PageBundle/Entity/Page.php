@@ -4,7 +4,6 @@ namespace Notimeo\PageBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Notimeo\UserBundle\Entity\User;
@@ -15,9 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="pages")
  * @ORM\Entity(repositoryClass="Notimeo\PageBundle\Repository\PageRepository")
- * @Gedmo\TranslationEntity(class="Notimeo\PageBundle\Entity\Page\PageTranslation")
  * @ORM\HasLifecycleCallbacks
- * @Vich\Uploadable
  */
 class Page
 {
@@ -31,48 +28,16 @@ class Page
     private $id;
 
     /**
-     * @var string
-     * @Gedmo\Translatable
-     * @ORM\Column(name="title", type="string", length=255)
-     * @Assert\Length(min="10")
-     */
-    private $title;
-
-    /**
-     * @var string
-     * @Gedmo\Translatable
-     * @ORM\Column(name="content", type="text")
-     * @Assert\Length(min="10")
-     */
-    private $content;
-
-    /**
      * @ORM\Column(name="is_published", type="boolean")
      */
     private $isPublished;
 
     /**
-     * @ORM\OneToMany(
-     *   targetEntity="Notimeo\PageBundle\Entity\Page\PageTranslation",
-     *   mappedBy="object",
-     *   cascade={"persist", "remove"}
-     * )
-     */
-    private $translations;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
-     */
-    private $image;
-
-    /**
-     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
      * @Assert\Valid
-     * @Assert\NotBlank(groups={"add_psasdsaage"})
-     * @var File
+     * @ORM\OneToMany(targetEntity="Notimeo\PageBundle\Entity\Page\PageLocale", mappedBy="page")
+     * @Assert\Count(max="2")
      */
-    private $imageFile;
+    private $locales;
 
     /**
      * @Assert\Valid
@@ -83,6 +48,7 @@ class Page
      *     orphanRemoval=true
      * )
      * @var PageFile[]
+     * @Assert\Count(max="1")
      */
     private $pageFiles;
 
@@ -122,14 +88,13 @@ class Page
         $this->author = $author;
     }
 
-
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->pageFiles = new ArrayCollection();
-        $this->translations = new ArrayCollection();
+        $this->pageFiles    = new ArrayCollection();
+        $this->locales      = new ArrayCollection();
     }
 
     /**
@@ -143,35 +108,11 @@ class Page
     }
 
     /**
-     * Set content
-     *
-     * @param string $content
-     *
-     * @return Page
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
      * Set whether this page is published or not.
      *
      * @param boolean $isPublished
      *
-     * @return Page
+     * @return $this
      */
     public function setIsPublished($isPublished)
     {
@@ -190,36 +131,12 @@ class Page
         return $this->isPublished;
     }
 
-    public function setImageFile(File $image = null)
-    {
-        $this->imageFile = $image;
-
-        if($image) {
-            $this->updateDate = new \DateTime('now');
-        }
-    }
-
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    public function setImage($image)
-    {
-        $this->image = $image;
-    }
-
-    public function getImage()
-    {
-        return $this->image;
-    }
-
     /**
      * Set updateDate
      *
      * @param \DateTime $updateDate
      *
-     * @return Page
+     * @return $this
      */
     public function setUpdateDate($updateDate)
     {
@@ -252,7 +169,7 @@ class Page
      *
      * @param PageFile $pageFile
      *
-     * @return Page
+     * @return $this
      */
     public function addPageFile(PageFile $pageFile)
     {
@@ -287,7 +204,7 @@ class Page
      *
      * @param User $updatedBy
      *
-     * @return Page
+     * @return $this
      */
     public function setUpdatedBy(User $updatedBy = null)
     {
@@ -306,53 +223,37 @@ class Page
         return $this->updatedBy;
     }
 
-    public function setTranslatableLocale($locale)
-    {
-        $this->locale = $locale;
-    }
-
-    public function getTranslations()
-    {
-        return $this->translations;
-    }
-
-    public function addTranslation(Page\PageTranslation $t)
-    {
-        if (!$this->translations->contains($t)) {
-            $this->translations[] = $t;
-            $t->setObject($this);
-        }
-    }
-
-    public function setTranslations($at)        // method used when values is set throught a type collection (add new throught the data-prototype)
-    {
-        foreach ($at as $t) {
-            $this->addTranslation($t);
-        }
-        return $this;
-    }
-
     /**
-     * Set title
+     * Add locale
      *
-     * @param string $title
+     * @param Page\PageLocale $locale
      *
-     * @return Page
+     * @return $this
      */
-    public function setTitle($title)
+    public function addLocale(Page\PageLocale $locale)
     {
-        $this->title = $title;
+        $this->locales[] = $locale;
 
         return $this;
     }
 
     /**
-     * Get title
+     * Remove locale
      *
-     * @return string
+     * @param Page\PageLocale $locale
      */
-    public function getTitle()
+    public function removeLocale(Page\PageLocale $locale)
     {
-        return $this->title;
+        $this->locales->removeElement($locale);
+    }
+
+    /**
+     * Get locales
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLocales()
+    {
+        return $this->locales;
     }
 }

@@ -4,6 +4,7 @@ namespace Notimeo\PageBundle\Entity\Page;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
@@ -12,6 +13,7 @@ use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
  *         "locale", "object_id", "field"
  *     })}
  * )
+ * @Vich\Uploadable
  */
 class PageTranslation extends AbstractPersonalTranslation
 {

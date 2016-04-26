@@ -9,3 +9,8 @@ services:
         tags:
             - { name: doctrine.event_subscriber, connection: default }
         arguments: ["@security.token_storage"]
+    form.type.page.locale:
+        class: Notimeo\PageBundle\Form\Type\PageLocaleType
+        tags:
+            - { name: form.type, alias: notimeo_pagebundle_pagelocale }
+        arguments: ['%locales%']
