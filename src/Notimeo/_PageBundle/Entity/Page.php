@@ -4,21 +4,22 @@ namespace Notimeo\PageBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Notimeo\LocaleBundle\Locale\EntityExt\Locales;
-use Notimeo\PageBundle\Entity\Page\PageFile;
+use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Notimeo\UserBundle\Entity\User;
-use Notimeo\LocaleBundle\Validator\Constraints as NotimeoLocaleAssert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Page
  *
  * @ORM\Table(name="pages")
  * @ORM\Entity(repositoryClass="Notimeo\PageBundle\Repository\PageRepository")
+ * @Gedmo\TranslationEntity(class="Notimeo\PageBundle\Entity\Page\PageTranslation")
  * @ORM\HasLifecycleCallbacks
+ * @Vich\Uploadable
  */
-class Page extends Locales
+class Page
 {
     /**
      * @var int
@@ -30,29 +31,52 @@ class Page extends Locales
     private $id;
 
     /**
+     * @var string
+     * @ORM\Column(name="title", type="string", length=255)
+     * @Gedmo\Translatable
+     * @Assert\Length(min="10", groups={"xxxx"})
+     */
+    private $title;
+
+    /**
+     * @var string
+     * @ORM\Column(name="content", type="text")
+     * @Gedmo\Translatable
+     * @Assert\Length(min="10")
+     */
+    private $content;
+
+    /**
      * @ORM\Column(name="is_published", type="boolean")
      */
     private $isPublished;
 
     /**
-     * @Assert\Valid
-     * @Assert\Count(min="1")
-     * @NotimeoLocaleAssert\ContainsMainLocale()
-     * @NotimeoLocaleAssert\OneLocalePerLang()
      * @ORM\OneToMany(
-     *     targetEntity="Notimeo\PageBundle\Entity\Page\PageLocale",
-     *     mappedBy="page",
-     *     cascade={"persist","remove"},
-     *     orphanRemoval=true
+     *   targetEntity="Notimeo\PageBundle\Entity\Page\PageTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
      * )
-     * @var Page\PageLocale[]
      */
-    protected $locales;
+    private $translations;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
+     * @Assert\Valid
+     * @var File
+     */
+    private $imageFile;
 
     /**
      * @Assert\Valid
      * @ORM\OneToMany(
-     *     targetEntity="Notimeo\PageBundle\Entity\Page\PageFile",
+     *     targetEntity="PageFile",
      *     mappedBy="page",
      *     cascade={"persist","remove"},
      *     orphanRemoval=true
@@ -97,13 +121,14 @@ class Page extends Locales
         $this->author = $author;
     }
 
+
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->pageFiles    = new ArrayCollection();
-        $this->locales      = new ArrayCollection();
+        $this->pageFiles = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 
     /**
@@ -117,11 +142,35 @@ class Page extends Locales
     }
 
     /**
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return Page
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
      * Set whether this page is published or not.
      *
      * @param boolean $isPublished
      *
-     * @return $this
+     * @return Page
      */
     public function setIsPublished($isPublished)
     {
@@ -140,12 +189,36 @@ class Page extends Locales
         return $this->isPublished;
     }
 
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        if($image) {
+            $this->updateDate = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
     /**
      * Set updateDate
      *
      * @param \DateTime $updateDate
      *
-     * @return $this
+     * @return Page
      */
     public function setUpdateDate($updateDate)
     {
@@ -178,7 +251,7 @@ class Page extends Locales
      *
      * @param PageFile $pageFile
      *
-     * @return $this
+     * @return Page
      */
     public function addPageFile(PageFile $pageFile)
     {
@@ -213,7 +286,7 @@ class Page extends Locales
      *
      * @param User $updatedBy
      *
-     * @return $this
+     * @return Page
      */
     public function setUpdatedBy(User $updatedBy = null)
     {
@@ -232,38 +305,53 @@ class Page extends Locales
         return $this->updatedBy;
     }
 
-    /**
-     * Add locale
-     *
-     * @param Page\PageLocale $locale
-     *
-     * @return $this
-     */
-    public function addLocale(Page\PageLocale $locale)
+    public function setTranslatableLocale($locale)
     {
-        $this->locales[] = $locale;
-        $locale->setPage($this);
+        $this->locale = $locale;
+    }
+
+    public function getTranslations()
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(Page\PageTranslation $t)
+    {
+        if (!$this->translations->contains($t)) {
+            $this->translations[] = $t;
+            $t->setObject($this);
+        }
+    }
+
+    public function setTranslations($at)        // method used when values is set throught a type collection (add new throught the data-prototype)
+    {
+        foreach ($at as $t) {
+            $this->addTranslation($t);
+        }
+        return $this;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Page
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
 
         return $this;
     }
 
     /**
-     * Remove locale
+     * Get title
      *
-     * @param Page\PageLocale $locale
+     * @return string
      */
-    public function removeLocale(Page\PageLocale $locale)
+    public function getTitle()
     {
-        $this->locales->removeElement($locale);
-    }
-
-    /**
-     * Get locales
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getLocales()
-    {
-        return $this->locales;
+        return $this->title;
     }
 }

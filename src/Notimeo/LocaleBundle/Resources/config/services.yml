@@ -1,0 +1,10 @@
+services:
+    validator.notimeo.contains_main_locale:
+        class: Notimeo\LocaleBundle\Validator\Constraints\ContainsMainLocaleValidator
+        arguments: ["%locale%", "@translator"]
+        tags:
+            - { name: validator.constraint_validator, alias: contains_main_locale }
+    validator.notimeo.one_per_lang:
+        class: Notimeo\LocaleBundle\Validator\Constraints\OneLocalePerLangValidator
+        tags:
+            - { name: validator.constraint_validator, alias: one_locale_per_lang }

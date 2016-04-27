@@ -1,9 +1,14 @@
 #app:
 #    resource: "@AppBundle/Resources/config/routing.yml"
 easy_admin_bundle:
-    resource: "@EasyAdminBundle/Controller/"
+#    resource: "@EasyAdminBundle/Controller/"
+    resource: "@CoreBundle/Controller/NotimeoAdminController.php"
     type:     annotation
-    prefix:   /admin
+    prefix:   /{_locale}/admin
+    defaults:
+        _locale: '%locale%'
+    requirements:
+        _locale: '%locales_req%'
 
 notimeo_core_bundle:
     resource: .

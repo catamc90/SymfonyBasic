@@ -9,6 +9,7 @@ imports:
 parameters:
     locale: en
     locales: ['en', 'pl']
+    locales_req: 'en|pl'
     app.path.product_images: /uploads/images/products
     app.path.user_contracts: /uploads/files/user/contracts
 

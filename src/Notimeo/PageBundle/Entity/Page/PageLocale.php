@@ -3,7 +3,6 @@
 namespace Notimeo\PageBundle\Entity\Page;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
 use Notimeo\PageBundle\Entity\Page;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -17,7 +16,7 @@ use Symfony\Component\HttpFoundation\File\File;
  * @ORM\HasLifecycleCallbacks
  * @Vich\Uploadable
  */
-class PageLocale extends AbstractPersonalTranslation
+class PageLocale
 {
     /**
      * @var int
@@ -64,6 +63,29 @@ class PageLocale extends AbstractPersonalTranslation
      * @ORM\JoinColumn(name="page_id", referencedColumnName="id")
      */
     protected $page;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     */
+    private $updateDate;
+
+    /**
+     * PageFile constructor.
+     */
+    public function __construct() {
+        $this->updateDate = new \DateTime();
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function updateModifiedDatetime()
+    {
+        // update the modified time
+        $this->updateDate = new \DateTime();
+    }
 
     /**
      * Set title
@@ -182,5 +204,39 @@ class PageLocale extends AbstractPersonalTranslation
     public function getLang()
     {
         return $this->lang;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set updateDate
+     *
+     * @param \DateTime $updateDate
+     *
+     * @return PageLocale
+     */
+    public function setUpdateDate($updateDate)
+    {
+        $this->updateDate = $updateDate;
+
+        return $this;
+    }
+
+    /**
+     * Get updateDate
+     *
+     * @return \DateTime
+     */
+    public function getUpdateDate()
+    {
+        return $this->updateDate;
     }
 }

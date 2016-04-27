@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
             new Notimeo\CoreBundle\CoreBundle(),
+            new Notimeo\LocaleBundle\LocaleBundle(),
             new Notimeo\UserBundle\UserBundle(),
             new Notimeo\MenuBundle\MenuBundle(),
             new Notimeo\PageBundle\PageBundle(),

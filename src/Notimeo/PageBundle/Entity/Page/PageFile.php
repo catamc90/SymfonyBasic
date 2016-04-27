@@ -1,15 +1,16 @@
 <?php
 
-namespace Notimeo\PageBundle\Entity;
+namespace Notimeo\PageBundle\Entity\Page;
 
 use Doctrine\ORM\Mapping as ORM;
+use Notimeo\PageBundle\Entity\Page;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="pages_files")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Notimeo\PageBundle\Repository\PageFileRepository")
  * @ORM\HasLifecycleCallbacks
  * @Vich\Uploadable
  */
@@ -47,7 +48,7 @@ class PageFile
     private $contractFile;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Page", inversedBy="pageFiles")
+     * @ORM\ManyToOne(targetEntity="Notimeo\PageBundle\Entity\Page", inversedBy="pageFiles")
      * @ORM\JoinColumn(nullable=false)
      */
     private $page;
@@ -65,7 +66,6 @@ class PageFile
         $this->updateDate = new \DateTime();
     }
 
-
     /**
      * Get id
      *
@@ -81,7 +81,7 @@ class PageFile
      *
      * @param string $contract
      *
-     * @return PageFile
+     * @return $this
      */
     public function setContract($contract)
     {
@@ -100,6 +100,9 @@ class PageFile
         return $this->contract;
     }
 
+    /**
+     * @param File $image
+     */
     public function setContractFile(File $image = null)
     {
         $this->contractFile = $image;
@@ -109,6 +112,9 @@ class PageFile
         }
     }
 
+    /**
+     * @return File
+     */
     public function getContractFile()
     {
         return $this->contractFile;
@@ -117,11 +123,11 @@ class PageFile
     /**
      * Set page
      *
-     * @param \Notimeo\PageBundle\Entity\Page $page
+     * @param Page $page
      *
-     * @return PageFile
+     * @return $this
      */
-    public function setPage(\Notimeo\PageBundle\Entity\Page $page = null)
+    public function setPage(Page $page = null)
     {
         $this->page = $page;
 
@@ -131,7 +137,7 @@ class PageFile
     /**
      * Get page
      *
-     * @return \Notimeo\PageBundle\Entity\Page
+     * @return Page
      */
     public function getPage()
     {
@@ -143,7 +149,7 @@ class PageFile
      *
      * @param string $title
      *
-     * @return PageFile
+     * @return $this
      */
     public function setTitle($title)
     {
@@ -167,7 +173,7 @@ class PageFile
      *
      * @param \DateTime $updateDate
      *
-     * @return PageFile
+     * @return $this
      */
     public function setUpdateDate(\DateTime $updateDate)
     {
