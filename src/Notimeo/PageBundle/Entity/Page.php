@@ -102,8 +102,12 @@ class Page extends Locales
      */
     public function __construct()
     {
-        $this->pageFiles    = new ArrayCollection();
-        $this->locales      = new ArrayCollection();
+        $this->pageFiles = new ArrayCollection();
+        $this->locales   = new ArrayCollection();
+
+        if($this->locales->isEmpty()) {
+//            $this->locales->add(new Page\PageLocale());
+        }
     }
 
     /**

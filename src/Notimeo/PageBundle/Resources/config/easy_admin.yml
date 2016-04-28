@@ -10,12 +10,7 @@ easy_admin:
             show:
                 fields:
                     - { property: 'image', type: 'image', base_path: "%app.path.product_images%" }
-#            new:
-#                form_options: { validation_groups: ['Default', 'add_page'] }
-            edit:
-                form_options: { validation_groups: ['Default', 'xxxx'] }
             form:
-#                form_options: { validation_groups: ['Default'] }
                 fields:
                     - isPublished
                     - property: 'locales'

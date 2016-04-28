@@ -37,13 +37,21 @@ class PageLocaleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        # create languages list
         $langsChoices = [];
 
         foreach($this->locales as $locale) {
             $langsChoices['lang.'.$locale] = $locale;
         }
 
-        $builder->add('lang', Type\ChoiceType::class, ['required' => true, 'choices' => $langsChoices]);
+        # create form fields
+        $builder->add('lang', Type\ChoiceType::class,
+            [
+                'required' => true,
+                'choices'  => $langsChoices,
+                'label'    => 'Language',
+            ]
+        );
         $builder->add('title', Type\TextType::class, ['required' => true]);
         $builder->add('content', CKEditorType::class);
         $builder->add('imageFile', VichImageType::class);

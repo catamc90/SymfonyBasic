@@ -30,7 +30,6 @@ class PageFile
      *
      * @Assert\NotBlank()
      * @ORM\Column(name="title", type="string", length=255)
-     * @Assert\Length(min="10", groups={"xxxx"})
      */
     private $title;
 

@@ -29,18 +29,21 @@ class PageLocale
 
     /**
      * @var string
+     * @Assert\NotBlank()
      * @ORM\Column(name="lang", type="string", length=5)
      */
     protected $lang;
 
     /**
      * @var string
+     * @Assert\NotBlank()
      * @ORM\Column(name="title", type="string", length=255)
      */
     protected $title;
 
     /**
      * @var string
+     * @Assert\NotBlank()
      * @ORM\Column(name="content", type="text")
      */
     protected $content;
