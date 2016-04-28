@@ -137,3 +137,9 @@ stof_doctrine_extensions:
         default:
             translatable: true
             softdeleteable: true
+
+easy_admin:
+    design:
+        assets:
+            css:
+                - bundles/core/css/easyadmin_custom.css
