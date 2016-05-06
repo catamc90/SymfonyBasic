@@ -54,7 +54,14 @@ class BannerCategory
     private $updatedBy;
 
     /**
-     * @ORM\OneToMany(targetEntity="Banner", mappedBy="category")
+     * @Assert\Valid
+     * @ORM\OneToMany(
+     *     targetEntity="Banner",
+     *     mappedBy="category",
+     *     cascade={"persist","remove"},
+     *     orphanRemoval=true
+     * )
+     * @var Banner[]
      */
     private $banners;
 
@@ -189,6 +196,8 @@ class BannerCategory
      */
     public function addBanner(Banner $banner)
     {
+        $banner->setCategory($this);
+
         $this->banners[] = $banner;
 
         return $this;

@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Notimeo\UserBundle\Entity\User;
 
 /**
- * Category
+ * Banners main class.
  *
  * @ORM\Table(name="banners")
  * @ORM\Entity(repositoryClass="Notimeo\BannersBundle\Repository\BannerRepository")
@@ -32,6 +32,7 @@ class Banner
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $title;
 
@@ -43,10 +44,8 @@ class Banner
     private $alt;
 
     /**
-     * @var BannerCategory
      * @ORM\ManyToOne(targetEntity="BannerCategory", inversedBy="banners")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     * @Assert\NotBlank()
+     * @ORM\JoinColumn(nullable=false)
      */
     private $category;
 
@@ -56,13 +55,14 @@ class Banner
     private $isPublished;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      * @var string
      */
     private $image;
 
     /**
      * @Vich\UploadableField(mapping="banners_images", fileNameProperty="image")
+     * @Assert\NotBlank(groups={"new"})
      * @Assert\File(
      *     maxSize="2000K",
      *     mimeTypes={

@@ -3,3 +3,6 @@ services:
         class: Notimeo\CoreBundle\Routing\NotimeoCoreLoader
         tags:
             - { name: routing.loader }
+    notimeo.query_builder:
+        class: Notimeo\CoreBundle\Search\QueryBuilder
+        arguments: ['@doctrine', '@request_stack']

@@ -1,24 +1,22 @@
 easy_admin:
     entities:
-        Banner:
-            class: Notimeo\BannersBundle\Entity\Banner
-            form:
-                fields:
-                    - title
-                    - isPublished
-                    - { property: 'imageFile', type: 'vich_image' }
-                    - alt
-                    - category
-            list:
-                fields:
-                    - title
-                    - updateDate
-                    - category
         BannerCategory:
             class: Notimeo\BannersBundle\Entity\BannerCategory
+            show:
+                fields:
+                    - { property: 'image', type: 'image', base_path: "%app.path.product_images%" }
             list:
                 fields:
                     - name
+            new:
+                form_options: { validation_groups: ['Default', 'new'] }
             form:
                 fields:
                     - name
+                    - property: 'banners'
+                      label: 'Banners'
+                      type: 'collection'
+                      type_options:
+                          entry_type: 'Notimeo\BannersBundle\Form\Type\BannerType'
+                          by_reference: false
+                          error_bubbling: false

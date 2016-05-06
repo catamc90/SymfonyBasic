@@ -106,7 +106,7 @@ class Page extends Locales
         $this->locales   = new ArrayCollection();
 
         if($this->locales->isEmpty()) {
-//            $this->locales->add(new Page\PageLocale());
+            $this->locales->add(new Page\PageLocale());
         }
     }
 

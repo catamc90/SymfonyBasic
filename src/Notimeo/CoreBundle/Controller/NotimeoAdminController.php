@@ -6,6 +6,7 @@ use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController;
 use JavierEguiluz\Bundle\EasyAdminBundle\Event\EasyAdminEvents;
 use Notimeo\LocaleBundle\Locale\EntityExt\Locales;
 use Symfony\Component\HttpFoundation\Response;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * Class NotimeoAdminController
@@ -49,10 +50,30 @@ class NotimeoAdminController extends AdminController
 
         $deleteForm = $this->createDeleteForm($this->entity['name'], '__id__');
 
+        dump($this->entity['templates']['list']);
+
         return $this->render($this->entity['templates']['list'], array(
             'paginator'            => $paginator,
             'fields'               => $fields,
             'delete_form_template' => $deleteForm->createView(),
         ));
+    }
+
+    /**
+     * Creates Query Builder instance for all the records.
+     *
+     * @param string      $entityClass
+     * @param string      $sortDirection
+     * @param string|null $sortField
+     *
+     * @return QueryBuilder The Query Builder instance
+     */
+    protected function createListQueryBuilder(
+        $entityClass, $sortDirection, $sortField = null
+    )
+    {
+        return $this
+            ->get('notimeo.query_builder')
+            ->createListQueryBuilder($this->entity, $sortField, $sortDirection);
     }
 }
