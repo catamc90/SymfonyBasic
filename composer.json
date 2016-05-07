@@ -35,7 +35,7 @@
         "vich/uploader-bundle": "1.0.1",
         "a2lix/translation-form-bundle": "2.1.2",
         "stof/doctrine-extensions-bundle": "1.2.x-dev",
-        "javiereguiluz/easyadmin-bundle": "v1.12.7"
+        "javiereguiluz/easyadmin-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

@@ -1,10 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1763ce80130550fc8e2e0034f4074a59",
+    "hash": "3fd7f4d433af6dc938ff54c5c3acfd15",
+    "content-hash": "d699dfa6ed727e0d90bc138b4ca9e59b",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -1121,19 +1122,20 @@
         },
         {
             "name": "javiereguiluz/easyadmin-bundle",
-            "version": "v1.12.7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/javiereguiluz/EasyAdminBundle.git",
-                "reference": "4ebb10ee3980c9fbfc00f6b4c399cd67efd18407"
+                "reference": "116227a13ea3bd6a166fc02dfa4da2f41751a06d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/4ebb10ee3980c9fbfc00f6b4c399cd67efd18407",
-                "reference": "4ebb10ee3980c9fbfc00f6b4c399cd67efd18407",
+                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/116227a13ea3bd6a166fc02dfa4da2f41751a06d",
+                "reference": "116227a13ea3bd6a166fc02dfa4da2f41751a06d",
                 "shasum": ""
             },
             "require": {
+                "doctrine/cache": "~1.5",
                 "doctrine/common": "^2.4.0",
                 "doctrine/doctrine-bundle": "~1.2",
                 "doctrine/orm": "~2.3",
@@ -1173,7 +1175,10 @@
             "autoload": {
                 "psr-4": {
                     "JavierEguiluz\\Bundle\\EasyAdminBundle\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1196,7 +1201,7 @@
                 "backend",
                 "generator"
             ],
-            "time": "2016-04-26 17:39:14"
+            "time": "2016-05-06 19:45:54"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -3174,7 +3179,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "white-october/pagerfanta-bundle": 20,
-        "stof/doctrine-extensions-bundle": 20
+        "stof/doctrine-extensions-bundle": 20,
+        "javiereguiluz/easyadmin-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
