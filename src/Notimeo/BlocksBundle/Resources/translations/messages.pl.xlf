@@ -10,8 +10,12 @@
         <target>Bloki</target>
       </trans-unit>
       <trans-unit>
-        <source>Blocks list</source>
-        <target>Lista bloków</target>
+        <source>Block</source>
+        <target>Blok</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Simple blocks list</source>
+        <target>Proste bloki</target>
       </trans-unit>
       <trans-unit>
         <source>Create block</source>
@@ -20,6 +24,10 @@
       <trans-unit>
         <source>Regions</source>
         <target>Regiony</target>
+      </trans-unit>
+      <trans-unit>
+        <source>BlockRegion</source>
+        <target>Region bloków</target>
       </trans-unit>
     </body>
   </file>
