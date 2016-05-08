@@ -7,6 +7,10 @@
         <target>Content</target>
       </trans-unit>
       <trans-unit>
+        <source>ID</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit>
         <source>Categories</source>
         <target>Categories</target>
       </trans-unit>
@@ -49,6 +53,10 @@
       <trans-unit>
         <source>Is published</source>
         <target>Is published</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Image file</source>
+        <target>Image file</target>
       </trans-unit>
       <trans-unit>
         <source>Image file</source>

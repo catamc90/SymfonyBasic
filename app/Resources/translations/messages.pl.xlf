@@ -7,6 +7,10 @@
         <target>Zawartość</target>
       </trans-unit>
       <trans-unit>
+        <source>ID</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit>
         <source>Categories</source>
         <target>Kategorie</target>
       </trans-unit>
