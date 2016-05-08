@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-05-07T22:10:14Z" source-language="en" target-language="pl" datatype="plaintext" original="not.available">
+  <file date="2016-05-07T22:17:49Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <body>
       <trans-unit>
         <source>adminmenu.content</source>
-        <target>Zawartość</target>
+        <target>Content</target>
       </trans-unit>
       <trans-unit>
         <source>Categories</source>
-        <target>Kategorie</target>
+        <target>Categories</target>
       </trans-unit>
       <trans-unit>
         <source>New category</source>
-        <target>Nowa kategoria</target>
+        <target>New category</target>
       </trans-unit>
       <trans-unit>
         <source>Name</source>
-        <target>Nazwa</target>
+        <target>Name</target>
       </trans-unit>
       <trans-unit>
         <source>Title</source>
-        <target>Tytuł</target>
+        <target>Title</target>
       </trans-unit>
       <trans-unit>
         <source>Image</source>
-        <target>Obraz</target>
+        <target>Image</target>
       </trans-unit>
       <trans-unit>
         <source>Update date</source>
-        <target>Data aktualizacji</target>
+        <target>Update date</target>
       </trans-unit>
       <trans-unit>
         <source>lang.en</source>
-        <target>Angielski</target>
+        <target>English</target>
       </trans-unit>
       <trans-unit>
         <source>lang.pl</source>
-        <target>Polski</target>
+        <target>Polish</target>
       </trans-unit>
       <trans-unit>
         <source>Language</source>
-        <target>Język</target>
+        <target>Language</target>
       </trans-unit>
       <trans-unit>
         <source>Content</source>
-        <target>Zawartość</target>
+        <target>Content</target>
       </trans-unit>
       <trans-unit>
         <source>Is published</source>
-        <target>Czy opublikowany</target>
+        <target>Is published</target>
       </trans-unit>
       <trans-unit>
         <source>Image file</source>
-        <target>Plik obrazka</target>
+        <target>Image file</target>
       </trans-unit>
     </body>
   </file>

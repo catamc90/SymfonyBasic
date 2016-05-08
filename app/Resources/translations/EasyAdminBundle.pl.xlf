@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2016-05-07T22:10:14Z" source-language="en" target-language="pl" datatype="plaintext" original="not.available">
+    <body>
+      <trans-unit>
+        <source>toggle_navigation</source>
+        <target>Przełącz nawigację</target>
+      </trans-unit>
+      <trans-unit>
+        <source>user.unnamed</source>
+        <target>Użytkownik bez nazwy</target>
+      </trans-unit>
+      <trans-unit>
+        <source>form.are_you_sure</source>
+        <target>Nie zapisano zmian dokonanych na tym formularzu.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

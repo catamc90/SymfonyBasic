@@ -6,3 +6,7 @@ services:
     notimeo.query_builder:
         class: Notimeo\CoreBundle\Search\QueryBuilder
         arguments: ['@doctrine', '@request_stack']
+    validator.notimeo.filenotempty:
+        class: Notimeo\CoreBundle\Validator\Constraints\FileNotEmptyValidator
+        tags:
+            - { name: validator.constraint_validator, alias: file_not_empty_validator }

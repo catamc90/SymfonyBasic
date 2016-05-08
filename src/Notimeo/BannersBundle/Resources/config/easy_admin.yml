@@ -8,6 +8,7 @@ easy_admin:
             list:
                 fields:
                     - name
+                    - bannersAmount
             new:
                 form_options: { validation_groups: ['Default', 'new'] }
             form:

@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Notimeo\UserBundle\Entity\User;
+use Notimeo\CoreBundle\Validator\Constraints as CoreAssert;
 
 /**
  * Banners main class.
@@ -16,6 +17,7 @@ use Notimeo\UserBundle\Entity\User;
  * @ORM\Entity(repositoryClass="Notimeo\BannersBundle\Repository\BannerRepository")
  * @Vich\Uploadable
  * @HasLifecycleCallbacks
+ * @CoreAssert\FileNotEmpty(fields={"image"})
  */
 class Banner
 {
@@ -40,6 +42,7 @@ class Banner
      * @var string
      *
      * @ORM\Column(name="alt", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $alt;
 

@@ -25,6 +25,10 @@ class AppKernel extends Kernel
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+            new JMS\AopBundle\JMSAopBundle(),
+            new JMS\TranslationBundle\JMSTranslationBundle(),
+
             new Notimeo\CoreBundle\CoreBundle(),
             new Notimeo\LocaleBundle\LocaleBundle(),
             new Notimeo\UserBundle\UserBundle(),

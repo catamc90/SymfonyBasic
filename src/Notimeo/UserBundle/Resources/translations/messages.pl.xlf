@@ -1,62 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
-        <body>
-            <!-- menu -->
-            <trans-unit id="Authorization system">
-                <source>Authorization system</source>
-                <target>System autoryzacji</target>
-            </trans-unit>
-            <trans-unit id="Users">
-                <source>Users</source>
-                <target>Użytkownicy</target>
-            </trans-unit>
-            <trans-unit id="Users list">
-                <source>Users list</source>
-                <target>Lista użytkowników</target>
-            </trans-unit>
-            <trans-unit id="Add user">
-                <source>Add user</source>
-                <target>Dodaj użytkownika</target>
-            </trans-unit>
-            <trans-unit id="Permissions">
-                <source>Permissions</source>
-                <target>Uprawnienia</target>
-            </trans-unit>
-            <trans-unit id="Roles list">
-                <source>Roles list</source>
-                <target>Lista ról</target>
-            </trans-unit>
-            <trans-unit id="Add role">
-                <source>Add role</source>
-                <target>Dodaj rolę</target>
-            </trans-unit>
-
-            <!-- list -->
-            <trans-unit id="User">
-                <source>User</source>
-                <target>Użytkownik</target>
-            </trans-unit>
-            <trans-unit id="Username">
-                <source>Username</source>
-                <target>Nazwa użytkownika</target>
-            </trans-unit>
-            <trans-unit id="Email">
-                <source>Email</source>
-                <target>E-mail</target>
-            </trans-unit>
-            <trans-unit id="Is active">
-                <source>Is active</source>
-                <target>Aktywny</target>
-            </trans-unit>
-            <trans-unit id="Role name">
-                <source>Role name</source>
-                <target>Nazwa roli</target>
-            </trans-unit>
-            <trans-unit id="ID">
-                <source>ID</source>
-                <target>ID</target>
-            </trans-unit>
-        </body>
-    </file>
+  <file source-language="en" target-language="pl" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit>
+        <source>Authorization system</source>
+        <target>System autoryzacji</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Users list</source>
+        <target>Lista użytkowników</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Users</source>
+        <target>Użytkownicy</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Add user</source>
+        <target>Dodaj użytkownika</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Permissions</source>
+        <target>Uprawnienia</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Roles list</source>
+        <target>Lista ról</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Add role</source>
+        <target>Dodaj rolę</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>

@@ -105,7 +105,7 @@ class Page extends Locales
         $this->pageFiles = new ArrayCollection();
         $this->locales   = new ArrayCollection();
 
-        if($this->locales->isEmpty()) {
+        if($this->locales->isEmpty() && empty($_POST)) {
             $this->locales->add(new Page\PageLocale());
         }
     }

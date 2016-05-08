@@ -9,3 +9,7 @@ services:
         arguments: [ '@doctrine.orm.default_entity_manager', '@validator', '%locales%', '%locale%' ]
         tags:
             - { name: form.type, alias: translatable }
+    twig.text_extension:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - name: twig.extension

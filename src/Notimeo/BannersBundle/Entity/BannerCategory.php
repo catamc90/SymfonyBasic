@@ -224,6 +224,14 @@ class BannerCategory
     }
 
     /**
+     * @return int
+     */
+    public function getBannersAmount()
+    {
+        return count($this->banners);
+    }
+
+    /**
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
      */

@@ -5,16 +5,19 @@ easy_admin:
         time: "H:i:s"
         datetime: "d.m.Y H:i:s"
     design:
+        assets:
+            css:
+                - bundles/core/css/easyadmin_custom.css
         color_scheme: 'dark'
         brand_color: '#0e76bc'
         menu:
             - label: 'adminmenu.content'
-            - entity: Banner
+            - entity: BannerCategory
               label: Banners
               icon: camera
               children:
-                - { entity: Banner, label: 'Banners list', icon: list }
-                - { entity: Banner, label: 'Add banner', icon: plus, params: { action: 'new' } }
+                - { entity: BannerCategory, label: 'Categories', icon: list }
+                - { entity: BannerCategory, label: 'New category', icon: plus, params: { action: 'new' } }
             - entity: Block
               label: Blocks
               icon: th

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="pl" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit>
+        <source>Pages</source>
+        <target>Strony proste</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Page</source>
+        <target>Strona</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Pages list</source>
+        <target>Lista stron</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Add page</source>
+        <target>Dodaj stronę</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Page files</source>
+        <target>Pliki strony</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

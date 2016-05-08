@@ -26,8 +26,8 @@ class BannerType extends AbstractType
         ]);
         $builder->add('isPublished');
         $builder->add('imageFile', VichImageType::class, [
-            'label_attr' => ['class' => 'required label-required'],
-            'allow_delete' => false,
+            'label_attr'     => ['class' => 'required label-required'],
+            'allow_delete'   => false,
         ]);
         $builder->add('alt', Type\TextType::class, [
             'label_attr' => ['class' => 'required label-required'],

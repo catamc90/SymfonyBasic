@@ -10,7 +10,7 @@ use Doctrine\ORM;
  * @package Notimeo\LocaleBundle\Locale\EntityExt
  * @author  Krzysztof Trzos <k.trzos@notimeo.pl>
  */
-class Locales
+abstract class Locales
 {
     /**
      * @var ORM\PersistentCollection
@@ -38,7 +38,11 @@ class Locales
         $localeClassName = $className.'\\'.array_pop($exploded).'Locale';
 
         if(property_exists($localeClassName, $name)) {
-            return call_user_func([$this->getLocale(), 'get'.ucfirst($name)]);
+            try {
+                return call_user_func([$this->getLocale(), 'get'.ucfirst($name)]);
+            } catch(LocaleException $e) {
+                return null;
+            }
         }
 
         return null;
@@ -61,7 +65,7 @@ class Locales
             }
         }
 
-        throw new \Exception('No locale found in this language.');
+        throw new LocaleException('No locale found in this language.');
     }
 
     /**

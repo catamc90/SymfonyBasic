@@ -50,8 +50,6 @@ class NotimeoAdminController extends AdminController
 
         $deleteForm = $this->createDeleteForm($this->entity['name'], '__id__');
 
-        dump($this->entity['templates']['list']);
-
         return $this->render($this->entity['templates']['list'], array(
             'paginator'            => $paginator,
             'fields'               => $fields,

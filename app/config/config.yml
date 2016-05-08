@@ -7,15 +7,15 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
-    locales: ['en', 'pl']
-    locales_req: 'en|pl'
+    locale: pl
+    locales: ['pl', 'en']
+    locales_req: 'pl|en'
     app.path.product_images: /uploads/images/products
     app.path.user_contracts: /uploads/files/user/contracts
 
 framework:
     #esi:             ~
-    translator:      { fallbacks: ['en', 'pl'] }
+    translator:      { fallbacks: ['pl', 'en'] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -138,8 +138,12 @@ stof_doctrine_extensions:
             translatable: true
             softdeleteable: true
 
-easy_admin:
-    design:
-        assets:
-            css:
-                - bundles/core/css/easyadmin_custom.css
+jms_translation:
+    configs:
+        app:
+            dirs: ['%kernel.root_dir%', "%kernel.root_dir%/../src"]
+            output_dir: "%kernel.root_dir%/Resources/translations"
+            ignored_domains: [routes]
+            excluded_names: ["*TestCase.php", "*Test.php"]
+            excluded_dirs: [cache, data, logs]
+            extractors: [alias_of_the_extractor]

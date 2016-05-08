@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2016-05-07T22:17:49Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <body>
+      <trans-unit>
+        <source>toggle_navigation</source>
+        <target>Toggle navigation</target>
+      </trans-unit>
+      <trans-unit>
+        <source>user.unnamed</source>
+        <target>Unnamed User</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

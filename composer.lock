@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3fd7f4d433af6dc938ff54c5c3acfd15",
-    "content-hash": "d699dfa6ed727e0d90bc138b4ca9e59b",
+    "hash": "85441150892a642f15ca37cb7c44a9cd",
+    "content-hash": "312781737b1faa7264a9c40bad68ef15",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -1126,12 +1126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/javiereguiluz/EasyAdminBundle.git",
-                "reference": "116227a13ea3bd6a166fc02dfa4da2f41751a06d"
+                "reference": "85b63a2c8467a4eb367f8fd20eb3491719ab9620"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/116227a13ea3bd6a166fc02dfa4da2f41751a06d",
-                "reference": "116227a13ea3bd6a166fc02dfa4da2f41751a06d",
+                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/85b63a2c8467a4eb367f8fd20eb3491719ab9620",
+                "reference": "85b63a2c8467a4eb367f8fd20eb3491719ab9620",
                 "shasum": ""
             },
             "require": {
@@ -1201,7 +1201,7 @@
                 "backend",
                 "generator"
             ],
-            "time": "2016-05-06 19:45:54"
+            "time": "2016-05-08 15:00:50"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1254,6 +1254,169 @@
             "time": "2014-01-12 16:20:24"
         },
         {
+            "name": "jms/aop-bundle",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schmittjoh/JMSAopBundle.git",
+                "reference": "78000d007e74283cc564a58e184d7f62548ad394"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schmittjoh/JMSAopBundle/zipball/78000d007e74283cc564a58e184d7f62548ad394",
+                "reference": "78000d007e74283cc564a58e184d7f62548ad394",
+                "shasum": ""
+            },
+            "require": {
+                "jms/cg": "^1.1",
+                "php": ">=5.3.9",
+                "symfony/framework-bundle": "^2.3|^3.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^2.7"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JMS\\AopBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes M. Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Adds AOP capabilities to Symfony2",
+            "keywords": [
+                "annotations",
+                "aop"
+            ],
+            "time": "2015-12-09 16:30:46"
+        },
+        {
+            "name": "jms/cg",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schmittjoh/cg-library.git",
+                "reference": "0af1113c7409b8636c5244bbae10b2e0ff792e9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schmittjoh/cg-library/zipball/0af1113c7409b8636c5244bbae10b2e0ff792e9c",
+                "reference": "0af1113c7409b8636c5244bbae10b2e0ff792e9c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "CG\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes M. Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Toolset for generating PHP code",
+            "keywords": [
+                "code generation"
+            ],
+            "time": "2015-09-13 08:54:43"
+        },
+        {
+            "name": "jms/di-extra-bundle",
+            "version": "1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schmittjoh/JMSDiExtraBundle.git",
+                "reference": "27c3fc7150550ccc0731290b2c1ceb57449f909d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schmittjoh/JMSDiExtraBundle/zipball/27c3fc7150550ccc0731290b2c1ceb57449f909d",
+                "reference": "27c3fc7150550ccc0731290b2c1ceb57449f909d",
+                "shasum": ""
+            },
+            "require": {
+                "jms/aop-bundle": "~1.1",
+                "jms/metadata": "~1.0",
+                "php": "~5.3|~7.0",
+                "symfony/dependency-injection": "~2.3|~3.0",
+                "symfony/finder": "~2.3|~3.0",
+                "symfony/framework-bundle": "~2.3|~3.0",
+                "symfony/http-kernel": "^2.3.24|~3.0",
+                "symfony/process": "~2.3|~3.0",
+                "symfony/routing": "~2.3|~3.0"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "~1.5",
+                "doctrine/orm": "~2.3",
+                "jms/security-extra-bundle": "~1.0",
+                "phpcollection/phpcollection": ">=0.2,<0.3-dev",
+                "sensio/framework-extra-bundle": "~2.0|~3.0",
+                "symfony/browser-kit": "~2.3|~3.0",
+                "symfony/class-loader": "~2.3|~3.0",
+                "symfony/form": "~2.3|~3.0",
+                "symfony/phpunit-bridge": "~2.7",
+                "symfony/security-bundle": "~2.3",
+                "symfony/twig-bundle": "~2.3|~3.0",
+                "symfony/validator": "~2.3|~3.0",
+                "symfony/yaml": "~2.3|~3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JMS\\DiExtraBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes M. Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Allows to configure dependency injection using annotations",
+            "homepage": "http://jmsyst.com/bundles/JMSDiExtraBundle",
+            "keywords": [
+                "annotations",
+                "dependency injection"
+            ],
+            "time": "2016-04-18 22:27:09"
+        },
+        {
             "name": "jms/metadata",
             "version": "1.5.1",
             "source": {
@@ -1304,6 +1467,74 @@
                 "yaml"
             ],
             "time": "2014-07-12 07:13:19"
+        },
+        {
+            "name": "jms/translation-bundle",
+            "version": "1.2.2",
+            "target-dir": "JMS/TranslationBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schmittjoh/JMSTranslationBundle.git",
+                "reference": "b025251eaf65b73a775fa22ec277e771cdba35d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schmittjoh/JMSTranslationBundle/zipball/b025251eaf65b73a775fa22ec277e771cdba35d8",
+                "reference": "b025251eaf65b73a775fa22ec277e771cdba35d8",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "^1.4|^2.0",
+                "php": "^5.3.3|^7.0",
+                "symfony/console": "^2.3|^3.0",
+                "symfony/framework-bundle": "^2.3|^3.0"
+            },
+            "conflict": {
+                "twig/twig": "<1.12"
+            },
+            "require-dev": {
+                "jms/di-extra-bundle": "^1.1",
+                "matthiasnoback/symfony-dependency-injection-test": "^0.7.6",
+                "psr/log": "^1.0",
+                "sensio/framework-extra-bundle": "^2.3|^3.0",
+                "symfony/expression-language": "~2.6|~3.0",
+                "symfony/symfony": "^2.3|^3.0",
+                "twig/twig": "^1.12"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "JMS\\TranslationBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes M. Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Puts the Symfony Translation Component on steroids",
+            "homepage": "http://jmsyst.com/bundles/JMSTranslationBundle",
+            "keywords": [
+                "extract",
+                "extraction",
+                "i18n",
+                "interface",
+                "multilanguage",
+                "translation",
+                "ui",
+                "webinterface"
+            ],
+            "time": "2016-04-03 16:16:17"
         },
         {
             "name": "knplabs/knp-menu",
@@ -1582,6 +1813,57 @@
                 "psr-3"
             ],
             "time": "2016-04-12 18:29:35"
+        },
+        {
+            "name": "nikic/php-parser",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
+                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "bin": [
+                "bin/php-parse"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpParser\\": "lib/PhpParser"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "time": "2016-04-19 13:41:41"
         },
         {
             "name": "ocramius/proxy-manager",

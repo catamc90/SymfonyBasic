@@ -246,12 +246,12 @@
                 if (event.preventDefault) event.preventDefault(); else event.returnValue = false;
 
                 var collection = $('#{{ id }}');
-                var numItems = collection.children('div.form-group').length + 1;
+                var numItems = collection.children('div.form-group').length;
 
                 collection.prev('.collection-empty').remove();
 
                 var newItem = collection.attr('data-prototype')
-                    .replace(/\>__name__label__\</g, '>#' + numItems + '<')
+                    .replace(/\>__name__label__\</g, '>#' + (numItems + 1) + '<')
                     .replace(/_{{ name }}___name__/g, '_{{ name }}_' + numItems)
                     .replace(/{{ name }}\]\[__name__\]/g, '{{ name }}][' + numItems + ']')
                 ;
