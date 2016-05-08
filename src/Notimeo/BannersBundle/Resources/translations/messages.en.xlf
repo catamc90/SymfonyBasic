@@ -17,6 +17,10 @@
         <source>Banners amount</source>
         <target>Banners amount</target>
       </trans-unit>
+      <trans-unit>
+        <source>Alternate text (alt)</source>
+        <target>Alternate text (alt)</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
