@@ -116,9 +116,11 @@ vich_uploader:
         product_images:
             uri_prefix:         "%app.path.product_images%"
             upload_destination: "%kernel.root_dir%/../web%app.path.product_images%"
+            namer:               vich_uploader.namer_uniqid
         user_contracts:
             uri_prefix:         "%app.path.user_contracts%"
             upload_destination: "%kernel.root_dir%/../web%app.path.user_contracts%"
+            namer:              vich_uploader.namer_uniqid
 
 stof_doctrine_extensions:
     default_locale: en_US
