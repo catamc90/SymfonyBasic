@@ -33,6 +33,38 @@
         <source>Add role</source>
         <target>Add role</target>
       </trans-unit>
+      <trans-unit>
+        <source>Role</source>
+        <target>Role</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Role name</source>
+        <target>Role name</target>
+      </trans-unit>
+      <trans-unit>
+        <source>User</source>
+        <target>User</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Username</source>
+        <target>Username</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Email</source>
+        <target>E-mail</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Is active</source>
+        <target>Is active</target>
+      </trans-unit>
+      <trans-unit>
+        <source>User roles</source>
+        <target>User roles</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
