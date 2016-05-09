@@ -26,6 +26,10 @@
         <target>Regions</target>
       </trans-unit>
       <trans-unit>
+        <source>Region</source>
+        <target>Region</target>
+      </trans-unit>
+      <trans-unit>
         <source>BlockRegion</source>
         <target>Block region</target>
       </trans-unit>
