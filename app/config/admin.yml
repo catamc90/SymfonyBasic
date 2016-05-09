@@ -22,9 +22,9 @@ easy_admin:
               label: Blocks
               icon: th
               children:
-                - { entity: Block, label: 'Blocks list', icon: list }
-                - { entity: Block, label: 'Create block', icon: plus, params: { action: 'new' } }
+                - { entity: Block, label: 'Simple blocks list', icon: list }
                 - { entity: BlockRegion, label: 'Regions', icon: list }
+                - { entity: BannerCategory, label: 'Blocks order', icon: list, params: { action: 'sortbygroups' } }
             - entity: Page
               label: Pages
               icon: file-text-o
