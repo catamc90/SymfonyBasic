@@ -9,7 +9,8 @@ easy_admin:
             form:
                 fields:
                     - title
-                    - content
+                    - { property: content, type: ckeditor }
+                    - region
         BlockRegion:
             class: Notimeo\BlocksBundle\Entity\BlockRegion
             list:

@@ -4,7 +4,6 @@ namespace Notimeo\BlocksBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
-use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Notimeo\UserBundle\Entity\User;
@@ -29,22 +28,37 @@ class Block
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
+
+    /**
+     * Block working name.
+     *
+     * @var string
+     * @ORM\Column(name="working_title", type="string", length=255, nullable=false)
+     */
+    private $workingTitle;
+
+    /**
+     * Block type.
+     * 
+     * @var string
+     * @ORM\Column(name="type", type="string", length=50, nullable=false)
+     */
+    private $type = 'simple';
 
     /**
      * Content of this block.
      *
      * @var string
-     * @ORM\Column(name="content", type="text")
+     * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
 
     /**
      * @var \DateTime
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $updateDate;
 
@@ -63,7 +77,7 @@ class Block
     private $updatedBy;
 
     /**
-     * @var User
+     * @var BlockRegion
      * @ORM\ManyToOne(targetEntity="BlockRegion", inversedBy="regions")
      * @ORM\JoinColumn(name="region_id", referencedColumnName="id")
      */
@@ -74,6 +88,12 @@ class Block
      * @ORM\Column(name="region_weight", type="integer")
      */
     private $regionWeight = 0;
+
+    /**
+     * @var int
+     * @ORM\Column(name="additional_id", type="integer", nullable=true)
+     */
+    private $additionalId;
 
     /**
      * @ORM\PrePersist()
@@ -239,7 +259,7 @@ class Block
     }
 
     /**
-     * Set region
+     * Set block region.
      *
      * @param BlockRegion $region
      *
@@ -253,12 +273,83 @@ class Block
     }
 
     /**
-     * Get region
+     * Get block region.
      *
      * @return BlockRegion
      */
     public function getRegion()
     {
         return $this->region;
+    }
+
+    /**
+     * Set working title.
+     *
+     * @param string $workingTitle
+     *
+     * @return Block
+     */
+    public function setWorkingTitle($workingTitle)
+    {
+        $this->workingTitle = $workingTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get working title of particular block.
+     *
+     * @return string
+     */
+    public function getWorkingTitle()
+    {
+        return $this->workingTitle;
+    }
+
+    /**
+     * Set type.
+     *
+     * @param string $type
+     * @return Block
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type.
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set additional ID referencing to some other entity.
+     *
+     * @param integer $additionalId
+     *
+     * @return Block
+     */
+    public function setAdditionalId($additionalId)
+    {
+        $this->additionalId = $additionalId;
+
+        return $this;
+    }
+
+    /**
+     * Get additional ID referencing to some other entity.
+     *
+     * @return integer
+     */
+    public function getAdditionalId()
+    {
+        return $this->additionalId;
     }
 }
